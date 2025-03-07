@@ -11,6 +11,20 @@ class MyApp extends StatelessWidget {
     player.play(AssetSource('note$note.wav'));
   }
 
+  Widget noteCreation(Color color, int note, String num) {
+    return Expanded(
+      child: TextButton(
+        onPressed: () {
+          xylophoneSound(note);
+        },
+        style: TextButton.styleFrom(
+          backgroundColor: color,
+        ),
+        child: Text('Play $num', style: TextStyle(color: Colors.white)),
+      ),
+    );
+  }
+
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -29,82 +43,13 @@ class MyApp extends StatelessWidget {
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(
-                child: TextButton(
-              onPressed: () {
-                xylophoneSound(1);
-              },
-              style: TextButton.styleFrom(
-                backgroundColor: const Color.fromARGB(249, 244, 0, 0),
-              ),
-              child: Text('Play', style: TextStyle(color: Colors.white)),
-            )),
-            Expanded(
-              child: TextButton(
-                  onPressed: () {
-                    xylophoneSound(2);
-                  },
-                  style: TextButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(
-                          255, 255, 123, 0) // Change text color
-                      ),
-                  child: Text('Play 2', style: TextStyle(color: Colors.white))),
-            ),
-            Expanded(
-              child: TextButton(
-                  onPressed: () {
-                    xylophoneSound(3);
-                  },
-                  style: TextButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(
-                          255, 255, 247, 0) // Change text color
-                      ),
-                  child: Text('Play 3', style: TextStyle(color: Colors.white))),
-            ),
-            Expanded(
-              child: TextButton(
-                  onPressed: () {
-                    xylophoneSound(4);
-                  },
-                  style: TextButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(
-                          255, 11, 121, 28) // Change text color
-                      ),
-                  child: Text('Play4', style: TextStyle(color: Colors.white))),
-            ),
-            Expanded(
-              child: TextButton(
-                  onPressed: () {
-                    xylophoneSound(5);
-                  },
-                  style: TextButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(
-                          255, 28, 92, 40) // Change text color
-                      ),
-                  child: Text('Play5', style: TextStyle(color: Colors.white))),
-            ),
-            Expanded(
-              child: TextButton(
-                  onPressed: () {
-                    xylophoneSound(6);
-                  },
-                  style: TextButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(
-                          255, 34, 96, 172) // Change text color
-                      ),
-                  child: Text('Play6', style: TextStyle(color: Colors.white))),
-            ),
-            Expanded(
-              child: TextButton(
-                  onPressed: () {
-                    xylophoneSound(7);
-                  },
-                  style: TextButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(
-                          255, 255, 0, 136) // Change text color
-                      ),
-                  child: Text('Play7', style: TextStyle(color: Colors.white))),
-            ),
+            noteCreation(Colors.red, 1, '1'),
+            noteCreation(const Color.fromARGB(255, 255, 119, 0), 2, '2'),
+            noteCreation(Colors.yellow, 3, '3'),
+            noteCreation(Colors.green, 4, '4'),
+            noteCreation(Colors.lightGreen, 5, '5'),
+            noteCreation(Colors.blueAccent, 6, '6'),
+            noteCreation(Colors.cyanAccent, 7, '7'),
           ],
         )),
       ),
